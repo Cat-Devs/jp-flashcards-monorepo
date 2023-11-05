@@ -1,7 +1,7 @@
 # JP FlashCards Native
 > React Native version of JP Flashcards
 
-<img width="390" alt="Screenshot 2023-11-05 at 09 47 24" src="https://github.com/Cat-Devs/jp-flashcards-native/assets/8806300/4ac66219-2bfa-476a-b3cf-706217612d7e">
+<img width="390" alt="Screenshot 2023-11-05 at 09 47 24" src="https://github.com/Cat-Devs/jp-flashcards-native/assets/8806300/bfd9035a-d260-4faf-81ca-64ba059cc9c1">
 
 # Prerequisites
 
