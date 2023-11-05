@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "jpFlashcardsNative",
+    "slug": "jpFlashcardsNative",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.jpeg",
+    "userInterfaceStyle": "dark",
+    "scheme": "acme",
+    "splash": {
+      "image": "./assets/logo.jpeg",
+      "resizeMode": "contain",
+      "backgroundColor": "#111526"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.andreasonny83.jpFlashcardsNative"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.jpeg",
+        "backgroundColor": "#111526"
+      },
+      "package": "com.andreasonny83.jpFlashcardsNative"
+    },
+    "web": {
+      "favicon": "./assets/logo.jpeg",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
