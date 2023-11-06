@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, Colors, Button } from 'react-native-ui-lib';
 
 import { useApp } from '../utils/AppContext';
@@ -7,19 +7,13 @@ import { createDeck } from '../utils/create-deck';
 
 export default function Home() {
   const router = useRouter();
-  const { state, startGame, nextCard } = useApp();
-
-  useEffect(() => {
-    if (state.nextCard) {
-      nextCard();
-      router.replace({ pathname: '/play' });
-    }
-  }, [router, state.nextCard, nextCard]);
+  const { startGame } = useApp();
 
   const handleStart = async () => {
     const gameMode = 'animals';
     const deck = await createDeck(gameMode);
-    await startGame(deck, gameMode);
+    startGame(deck, gameMode);
+    router.push({ pathname: '/play' });
   };
 
   return (

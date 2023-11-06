@@ -4,34 +4,27 @@ import React, { useEffect, useState } from 'react';
 import { View, Colors, Button, Incubator } from 'react-native-ui-lib';
 
 import { Card } from '../../components/Card';
-import { GameOver } from '../../components/GameOver';
 import { NoCard } from '../../components/NoCard';
 import { useApp } from '../../utils/AppContext';
 
-export default function Play() {
-  useEffect(() => {
-    console.log('play mount');
-    return () => {
-      console.log('play unmount');
-    };
-  }, []);
-
+export default function PlayPage() {
   const router = useRouter();
   const [toastVisible, setToastVisible] = useState(false);
-  const [controls, setControls] = useState(false);
-  const { getItem: toastStatus, setItem: setToastStatus } = useAsyncStorage('toast');
+  const [showControls, setShowControls] = useState(false);
+  const { getItem: toastDismissed, setItem: setToastDismissed } = useAsyncStorage('toast');
   const { state, nextCard } = useApp();
+
   useEffect(() => {
     (async () => {
-      const toast = await toastStatus();
+      const toast = await toastDismissed();
       setToastVisible(!toast);
     })();
-  }, [toastStatus]);
+  }, [toastDismissed]);
 
   const handleFlipCard = () => {
-    setToastStatus('true');
+    setToastDismissed('true');
     handleDismissToast();
-    setControls(true);
+    setShowControls(true);
   };
 
   const handleSuccess = () => {
@@ -49,11 +42,8 @@ export default function Play() {
   };
 
   if (state?.isGameOver) {
-    return (
-      <View flex centerV marginH-20>
-        <GameOver />
-      </View>
-    );
+    router.replace({ pathname: '/game-over' });
+    return null;
   }
 
   if (!state?.currentCard) {
@@ -88,7 +78,7 @@ export default function Play() {
       />
 
       <View height={80}>
-        {controls && (
+        {showControls && (
           <View row marginT-20 right spread>
             <Button
               label="Failed"

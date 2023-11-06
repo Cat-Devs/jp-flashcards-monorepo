@@ -6,4 +6,5 @@ export type CardType = {
   name: string;
   romaji: string;
   category: string;
+  success?: boolean;
 };

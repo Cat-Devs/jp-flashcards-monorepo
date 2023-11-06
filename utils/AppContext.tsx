@@ -2,7 +2,7 @@ import React, { Dispatch, createContext, useContext, useMemo, useReducer } from 
 
 import { CardType } from '../types/card';
 
-interface AppState {
+export interface AppState {
   deck: CardType[];
   currentCard: CardType | null;
   nextCard: CardType | null;
@@ -12,15 +12,10 @@ interface AppState {
 
 const appReducer = (state: AppState, action: any) => {
   switch (action.type) {
-    case 'SET_GAME_MODE':
+    case 'START_GAME':
       return {
         ...state,
-        gameMode: action.payload,
-      };
-    case 'SET_DECK':
-      return {
-        ...state,
-        deck: action.payload,
+        ...action.payload,
       };
     case 'NEXT_CARD':
       return {
@@ -36,11 +31,6 @@ const appReducer = (state: AppState, action: any) => {
         currentCard: null,
         nextCard: null,
         deck: action.payload.deck,
-      };
-    case 'START_GAME':
-      return {
-        ...state,
-        ...action.payload,
       };
     default:
       return state;
@@ -88,8 +78,8 @@ export const useApp = () => {
     dispatch({
       type: 'START_GAME',
       payload: {
-        currentCard: null,
-        nextCard: deck[0],
+        currentCard: deck[0],
+        nextCard: deck?.[1] || null,
         isGameOver: false,
         deck,
         gameMode,
@@ -97,14 +87,7 @@ export const useApp = () => {
     });
   };
 
-  const setDeck = (deck: any[]) => {
-    dispatch({
-      type: 'SET_DECK',
-      payload: deck,
-    });
-  };
-
-  const nextCard = (success: boolean) => {
+  const nextCard = (success?: boolean) => {
     const updateDeck = state.deck.map((card: CardType) => {
       if (card.cardId === state.currentCard?.cardId) {
         return {
@@ -141,19 +124,10 @@ export const useApp = () => {
     });
   };
 
-  const setGameMode = (mode: string) => {
-    dispatch({
-      type: 'SET_GAME_MODE',
-      payload: mode,
-    });
-  };
-
   return {
     state,
-    setDeck,
     nextCard,
     endGame,
-    setGameMode,
     startGame,
   };
 };
