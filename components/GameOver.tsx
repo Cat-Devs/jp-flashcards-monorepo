@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Colors, Text, View } from 'react-native-ui-lib';
 
-import { AppState } from '../utils/AppContext';
+import { AppState } from '../utils/app-context';
 
 interface Props {
   gameStats: AppState;

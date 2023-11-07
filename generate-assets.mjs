@@ -1,8 +1,8 @@
-const fs = require('fs');
+import { Buffer } from 'buffer';
+import fs from 'fs';
 
 function convertImageToBase64(imagePath) {
   const image = fs.readFileSync(imagePath);
-  // eslint-disable-next-line no-undef
   const base64Image = Buffer.from(image).toString('base64');
   return base64Image;
 }
@@ -13,9 +13,11 @@ function convertImageToBase64(imagePath) {
   } catch (_err) {
     console.log('images.json does not exist');
   }
+  console.log('Generating assets/images.json');
   fs.appendFileSync('assets/images.json', '{\n');
   fs.readdirSync('_images').forEach((file, index, tot) => {
     const base64Image = convertImageToBase64(`_images/${file}`);
+    console.log(`Adding ${file}`);
     if (index === tot.length - 1) {
       fs.appendFileSync('assets/images.json', `"${file}":"data:image/png;base64,${base64Image}"\n`);
     } else {

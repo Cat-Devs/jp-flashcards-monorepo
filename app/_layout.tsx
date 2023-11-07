@@ -1,8 +1,9 @@
+import 'react-native-polyfill-globals/auto';
 import { Stack } from 'expo-router';
 import React from 'react';
 import { Colors } from 'react-native-ui-lib';
 
-import { AppProvider } from '../utils/AppContext';
+import { AppProvider } from '../utils/app-context';
 
 export default function HomeLayout() {
   return (
