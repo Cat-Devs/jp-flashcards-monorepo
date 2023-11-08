@@ -5,24 +5,17 @@ import { SafeAreaView } from 'react-native';
 import { View, Colors, Button, Incubator } from 'react-native-ui-lib';
 
 import { Card } from '../../components/Card';
-import { NoCard } from '../../components/NoCard';
-import { useApp } from '../../utils/app-context';
+import { useApp } from '../../utils';
 
-export default function PlayPage(props: any) {
+export default function PlayPage() {
   const router = useRouter();
-  const [toastVisible, setToastVisible] = useState(false);
+  const [toastVisible, setToastVisible] = useState(true);
   const [showControls, setShowControls] = useState(false);
   const { getItem: toastDismissed, setItem: setToastDismissed } = useAsyncStorage('toast');
   const {
-    state: { currentCard, isGameOver },
+    state: { currentCard },
     playNextCard,
   } = useApp();
-
-  useEffect(() => {
-    if (isGameOver) {
-      router.replace({ pathname: '/game-over' });
-    }
-  }, [isGameOver, router]);
 
   useEffect(() => {
     (async () => {
@@ -32,38 +25,34 @@ export default function PlayPage(props: any) {
   }, [toastDismissed]);
 
   const handleFlipCard = () => {
-    setToastDismissed('true');
-    handleDismissToast();
+    if (toastVisible) {
+      handleDismissToast();
+    }
     setShowControls(true);
   };
 
-  const handleSuccess = () => {
-    playNextCard(true);
-    router.replace({ pathname: '/play' });
-  };
+  const handleNextCard = (cardResult: boolean) => {
+    const res = playNextCard(cardResult);
 
-  const handleFailed = () => {
-    playNextCard(false);
+    if (res === null) {
+      return router.replace({ pathname: '/game-over' });
+    }
+
     router.replace({ pathname: '/play' });
   };
 
   const handleDismissToast = () => {
+    setToastDismissed('true');
     setToastVisible(false);
   };
 
   if (!currentCard) {
-    return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <View flex centerV marginH-20>
-          <NoCard />
-        </View>
-      </SafeAreaView>
-    );
+    return router.replace({ pathname: '/no-card' });
   }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View flex centerV marginH-20>
+      <View flex bottom marginH-20>
         <Incubator.Toast
           backgroundColor={Colors.blue80}
           preset="general"
@@ -74,6 +63,7 @@ export default function PlayPage(props: any) {
           iconColor={Colors.blue40}
           centerMessage
           swipeable
+          zIndex={1}
         />
 
         <Card
@@ -85,20 +75,20 @@ export default function PlayPage(props: any) {
           onFlipCard={handleFlipCard}
         />
 
-        <View height={80}>
+        <View height={90}>
           {showControls && (
             <View row marginT-20 right spread>
               <Button
                 label="Failed"
                 size={Button.sizes.large}
                 backgroundColor={Colors.red30}
-                onPress={handleFailed}
+                onPress={() => handleNextCard(false)}
               />
               <Button
                 label="Success"
                 size={Button.sizes.large}
                 backgroundColor={Colors.green30}
-                onPress={handleSuccess}
+                onPress={() => handleNextCard(true)}
               />
             </View>
           )}

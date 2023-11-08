@@ -1,6 +1,6 @@
-import { CardType } from '../../types/card';
+import { CardType } from './types';
 
-export const createDeck = async (category: string): Promise<CardType[]> => {
+export const createDeck = async (_category: string): Promise<CardType[]> => {
   const strawberry: CardType = {
     cardId: '001',
     category: 'fruits',

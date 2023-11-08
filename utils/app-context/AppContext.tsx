@@ -1,14 +1,15 @@
 import React, { Dispatch, createContext, useMemo, useReducer } from 'react';
 
 import { appReducer } from './store';
-import { AppState } from './types';
+import { AppState } from '../types';
 
 const initialState: AppState = {
   deck: [],
   currentCard: null,
   nextCard: null,
   isGameOver: false,
-  gameMode: 'hiragana',
+  gameMode: null,
+  user: null,
 };
 
 export const AppContext = createContext<{

@@ -1,4 +1,4 @@
-import { AppState } from './types';
+import { AppState } from '../types';
 
 export const appReducer = (state: AppState, action: any) => {
   switch (action.type) {
@@ -21,6 +21,16 @@ export const appReducer = (state: AppState, action: any) => {
         currentCard: null,
         nextCard: null,
         deck: action.payload.deck,
+      };
+    case 'SET_USER':
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case 'UNSET_USER':
+      return {
+        ...state,
+        user: {},
       };
     default:
       return state;

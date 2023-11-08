@@ -3,9 +3,9 @@ import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { View, Text, Colors, Button } from 'react-native-ui-lib';
 
-import { useApp } from '../utils/app-context';
+import { useApp } from '../utils';
 
-export default function Home(props: any) {
+export default function Home() {
   const router = useRouter();
   const { startGame } = useApp();
 
@@ -16,7 +16,7 @@ export default function Home(props: any) {
   };
 
   const handleSignIn = () => {
-    router.push({ pathname: '/auth' });
+    router.replace({ pathname: '/auth' });
   };
 
   return (

@@ -1,21 +1,23 @@
-import { Link } from 'expo-router';
 import React from 'react';
 import { Button, Colors, Text, View } from 'react-native-ui-lib';
 
-export const NoCard = () => {
+interface Props {
+  onGoHome: () => void;
+}
+
+export const NoCard = ({ onGoHome }: Props) => {
   return (
     <View>
       <Text h1 center text30H marginB-100>
-        Game Over
+        Cannot find a card
       </Text>
-      <Link href={{ pathname: '/home' }} asChild>
-        <Button
-          text50BO
-          size={Button.sizes.large}
-          backgroundColor={Colors.blue40}
-          label="Start Over"
-        />
-      </Link>
+      <Button
+        text50BO
+        size={Button.sizes.large}
+        backgroundColor={Colors.blue40}
+        label="Go Home"
+        onPress={onGoHome}
+      />
     </View>
   );
 };

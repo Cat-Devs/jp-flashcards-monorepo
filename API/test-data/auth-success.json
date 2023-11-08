@@ -1,0 +1,10 @@
+{
+  "pathParameters": {
+    "proxy": "auth"
+  },
+  "httpMethod": "POST",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"username\": \"test\", \"password\": \"test\"}"
+}

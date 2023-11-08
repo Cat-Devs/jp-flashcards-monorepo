@@ -10,13 +10,14 @@ import { View, Text, Card as CardComponent, TouchableOpacity, Colors } from 'rea
 import { toKana } from 'wanakana';
 
 import images from '../assets/images.json';
+import { CardType } from '../utils';
 
-interface Props {
-  cardId?: string;
-  category?: string;
-  image?: keyof typeof images;
-  name?: string;
-  romaji?: string;
+interface Props extends CardType {
+  cardId: string;
+  category: string;
+  image: keyof typeof images;
+  name: string;
+  romaji: string;
   onFlipCard?: () => void;
 }
 

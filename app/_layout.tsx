@@ -19,6 +19,7 @@ export default function HomeLayout() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          headerBackVisible: true,
         }}
       />
     </AppProvider>
