@@ -11,6 +11,19 @@ provider:
   name: aws
   runtime: nodejs16.x
   stage: ${opt:stage, 'dev'}
+  environment:
+    TABLE_NAME: '${self:custom.service}-${self:custom.stage}'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - Fn::GetAtt: [ FlashcardsTable, Arn ]
 
 custom:
   service: '${self:service}'
@@ -19,7 +32,8 @@ custom:
   table: '${env:TABLE_NAME, self:custom.service}-${self:custom.stage}'
   s3:
     directory: local_assets
-  serverless:
+
+  serverless-dynamodb:
     stages:
       - dev
     start:
@@ -96,6 +110,8 @@ resources:
 functions:
   api:
     handler: src/index.api
+    package:
+      individually: false
     events:
       - http:
           path: /{proxy+}

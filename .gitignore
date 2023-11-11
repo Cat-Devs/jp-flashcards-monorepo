@@ -39,6 +39,9 @@ yarn-error.*
 *.tsbuildinfo
 
 # SLS
+.serverless/
 /local_assets
 .build/
 .dynamodb/
+/API/local_assets/*
+!/API/local_assets/.gitkeep

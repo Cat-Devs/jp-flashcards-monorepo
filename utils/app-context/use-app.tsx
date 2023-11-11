@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 
 import { AppContext } from './AppContext';
-import { createDeck } from '../../API/src/create-deck';
-import { auth } from '../controllers/auth';
+import { createDeck, auth } from '../controllers';
 import { UserState, CardType } from '../types';
 
 export const useApp = () => {

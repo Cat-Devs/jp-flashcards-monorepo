@@ -4,7 +4,7 @@ import path from 'path';
 import 'dotenv/config';
 
 const bucketName = process.env.BUCKET_NAME;
-const ASSETS_FOLDER = '_assets';
+const ASSETS_FOLDER = '../_assets';
 
 const s3Client = new S3Client({
   endpoint: 'http://localhost:4569', // Local S3 endpoint

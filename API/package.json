@@ -20,14 +20,13 @@
     "@aws-sdk/client-dynamodb": "^3.445.0",
     "@aws-sdk/client-s3": "^3.445.0",
     "@aws-sdk/lib-dynamodb": "^3.445.0",
-    "@react-native-async-storage/async-storage": "1.18.2",
-    "aws-lambda": "^1.0.7",
     "axios": "^1.6.0",
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "serverless-dynamodb": "^0.2.47",
     "serverless-http": "^3.2.0",
+    "ulid": "^2.3.0",
     "wanakana": "^5.2.0"
   },
   "devDependencies": {
