@@ -44,13 +44,13 @@ export default function App() {
   };
 
   const handleSignUp = async () => {
-    const _user = await signUp(userData);
+    const user = await signUp(userData);
 
-    // if (!user) {
-    //   setToastMessage('Failed to sign up');
-    //   setToastVisible(true);
-    //   return;
-    // }
+    if (!user) {
+      //   setToastMessage('Failed to sign up');
+      //   setToastVisible(true);
+      //   return;
+    }
 
     router.replace('/');
   };

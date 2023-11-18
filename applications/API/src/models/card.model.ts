@@ -27,6 +27,7 @@ export class CardItem extends Item {
     this.image = image;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static fromItem(item?: Record<string, any>): CardType {
     if (!item) {
       throw new Error('No item');

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { DEBUG } from '../config';
 
 export function logHelper(logLevel: keyof Console, message: string, ...optionalParams: any[]) {

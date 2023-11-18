@@ -1,0 +1,6 @@
+# SLS
+.serverless/
+.build/
+.dynamodb/
+/local_assets/*
+!/local_assets/.gitkeep

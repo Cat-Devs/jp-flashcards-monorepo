@@ -5,7 +5,9 @@ export const auth = async (userData: { username: string; password: string }) => 
   try {
     const res = await axios.post(`${API_URL}/auth`, userData);
     return res.data;
-  } catch (_err) {
+  } catch (err) {
+    console.log(err);
+
     return null;
   }
 };

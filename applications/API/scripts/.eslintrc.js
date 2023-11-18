@@ -5,14 +5,14 @@ module.exports = {
   },
   root: true,
   parserOptions: {
-    sourceType: "module",
+    sourceType: 'module',
     ecmaVersion: 2021,
   },
   overrides: [
     {
-      files: ["*.mjs"],
+      files: ['*.mjs'],
       parserOptions: {
-        sourceType: "module",
+        sourceType: 'module',
       },
     },
   ],

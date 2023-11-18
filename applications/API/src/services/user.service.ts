@@ -19,18 +19,13 @@ export class UserService {
       Key: user.keys(),
     };
 
-    try {
-      const data = await dbClient.send(new GetCommand(params));
+    const data = await dbClient.send(new GetCommand(params));
 
-      if (!data?.Item) {
-        throw new Error(`Failed to retrieve user: "${username}"`);
-      }
-
-      const user = UserItem.fromItem(data.Item);
-      return user;
-    } catch (err) {
-      throw err;
+    if (!data?.Item) {
+      throw new Error(`Failed to retrieve user: "${username}"`);
     }
+
+    return UserItem.fromItem(data.Item);
   }
 
   static async createUser(username: string, name: string, email: string): Promise<User> {
@@ -41,12 +36,8 @@ export class UserService {
       Item: user.toItem(),
     };
 
-    try {
-      await dbClient.send(new PutCommand(params));
-      return user;
-    } catch (err) {
-      throw err;
-    }
+    await dbClient.send(new PutCommand(params));
+    return user;
   }
 
   static async auth(userData: GetUserInput): Promise<User> {
