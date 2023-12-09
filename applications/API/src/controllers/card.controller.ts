@@ -4,7 +4,8 @@ import { CardService } from '../services';
 
 export class CardController {
   static async getCard(req: Request, res: Response) {
-    const { cardId } = req?.body || {};
+    const { cardId } = req?.params || {};
+
     if (!cardId) {
       return res.status(400).send('Missing cardId');
     }

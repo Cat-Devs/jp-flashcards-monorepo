@@ -1,10 +1,12 @@
 service: jp-flashcards-2
 frameworkVersion: '3'
+package:
+  individually: true
 
 plugins:
-  - serverless-plugin-typescript
   - serverless-dynamodb
   - serverless-s3-local
+  - serverless-esbuild
   - serverless-offline
 
 provider:
@@ -32,6 +34,9 @@ custom:
   table: '${env:TABLE_NAME, self:custom.service}-${self:custom.stage}'
   s3:
     directory: local_assets
+  esbuild:
+    watch:
+      pattern: "src/**/*.ts"
 
   serverless-dynamodb:
     stages:
@@ -110,8 +115,8 @@ resources:
 functions:
   api:
     handler: src/index.api
-    package:
-      individually: false
+    # package:
+    #   individually: false
     events:
       - http:
           path: /{proxy+}
