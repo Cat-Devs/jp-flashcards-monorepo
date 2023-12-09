@@ -33,15 +33,19 @@ export class CardItem extends Item {
       throw new Error('No item');
     }
 
-    const { PK, en, romaji, category, image } = item;
+    console.log('item', item);
+
+    const { PK, en, romaji, category, image, level, sample } = item;
     const id = `${PK}`.replace('c#', '');
 
     return {
       cardId: id,
       category,
+      level,
       image,
-      name: en,
+      en,
       romaji,
+      sample,
     };
   }
 

@@ -70,7 +70,7 @@ export default function PlayPage() {
           cardId={currentCard.cardId}
           category={currentCard.category}
           image={currentCard.image}
-          name={currentCard.name}
+          en={currentCard.en}
           romaji={currentCard.romaji}
           onFlipCard={handleFlipCard}
         />

@@ -16,12 +16,12 @@ interface Props extends CardType {
   cardId: string;
   category: string;
   image: keyof typeof images;
-  name: string;
+  en: string;
   romaji: string;
   onFlipCard?: () => void;
 }
 
-export const Card = ({ cardId, category, image, name, romaji, onFlipCard }: Props) => {
+export const Card = ({ cardId, category, image, en, romaji, onFlipCard }: Props) => {
   const spin = useSharedValue<number>(0);
 
   const frontStyle = useAnimatedStyle(() => {
@@ -80,7 +80,7 @@ export const Card = ({ cardId, category, image, name, romaji, onFlipCard }: Prop
 
           <View marginB-20 center flex>
             <Text blue50 text20>
-              {name}
+              {en}
             </Text>
           </View>
         </CardComponent>

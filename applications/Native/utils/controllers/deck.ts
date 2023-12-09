@@ -3,8 +3,7 @@ import axios from 'axios';
 
 export const createDeck = async (category: string) => {
   try {
-    const res = await axios.post(`${API_URL}/deck`, { category });
-    console.log('res.data', res.data);
+    const res = await axios.post(`${API_URL}/api/v1/deck`, { category });
 
     return res.data;
   } catch (_err) {

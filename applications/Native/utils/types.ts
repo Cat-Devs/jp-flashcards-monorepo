@@ -18,7 +18,7 @@ export interface AppState {
 export type CardType = {
   cardId: string;
   image: keyof typeof images;
-  name: string;
+  en: string;
   romaji: string;
   category: string;
   success?: boolean;

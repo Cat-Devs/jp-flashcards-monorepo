@@ -48,15 +48,17 @@ export class CardService {
       cardId: '001',
       category: 'fruits',
       image: 'strawberry.jpeg',
-      name: 'Strawberry',
+      en: 'Strawberry',
       romaji: 'ichigo',
+      level: 1,
     };
     const cat: CardType = {
       cardId: '002',
       category: 'animals',
       image: 'cat.jpeg',
-      name: 'Cat',
+      en: 'Cat',
       romaji: 'neko',
+      level: 1,
     };
 
     return [strawberry, cat];

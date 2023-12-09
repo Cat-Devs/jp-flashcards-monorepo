@@ -7,9 +7,11 @@ export interface User {
 export interface CardType {
   cardId: string;
   category: string;
+  level: number;
   image: string;
-  name: string;
+  en: string;
   romaji: string;
+  sample?: string;
 }
 
 export interface UserCredentials {
