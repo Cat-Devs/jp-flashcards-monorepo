@@ -24,7 +24,8 @@
     "expo:fix": "npx expo install --fix",
     "expo:upgrade": "npx expo install --fix",
     "expo:doctor": "expo-doctor",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.18.2",
