@@ -1,0 +1,270 @@
+[
+  {
+    "id": "hgna1",
+    "entityType": "Card",
+    "en": "rain",
+    "sample": "ame",
+    "romaji": "a",
+    "level": "1",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna2",
+    "entityType": "Card",
+    "en": "strawberry",
+    "sample": "ichigo",
+    "romaji": "i",
+    "level": "1",
+    "category": "hiragana",
+    "image": "strawberry.jpeg"
+  },
+  {
+    "id": "hgna3",
+    "entityType": "Card",
+    "en": "rabbit",
+    "sample": "usaghi",
+    "romaji": "u",
+    "level": "1",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna4",
+    "entityType": "Card",
+    "en": "pencil",
+    "sample": "enpitsu",
+    "romaji": "e",
+    "level": "1",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna5",
+    "entityType": "Card",
+    "en": "delicious",
+    "sample": "oishii",
+    "romaji": "o",
+    "level": "1",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna6",
+    "entityType": "Card",
+    "en": "pumpkin",
+    "sample": "kabocha",
+    "romaji": "ka",
+    "level": "2",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna7",
+    "entityType": "Card",
+    "en": "fox",
+    "sample": "kitsune",
+    "romaji": "ki",
+    "level": "2",
+    "category": "hiraganaa"
+  },
+  {
+    "id": "hgna8",
+    "entityType": "Card",
+    "en": "spider",
+    "sample": "kumo",
+    "romaji": "ku",
+    "level": "2",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna9",
+    "entityType": "Card",
+    "en": "eraser",
+    "sample": "keshigomu",
+    "romaji": "ke",
+    "level": "2",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna10",
+    "entityType": "Card",
+    "en": "child",
+    "sample": "kodomo",
+    "romaji": "ko",
+    "level": "2",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna11",
+    "entityType": "Card",
+    "en": "fish",
+    "sample": "sakana",
+    "romaji": "a",
+    "level": "3",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna12",
+    "entityType": "Card",
+    "en": "newspaper",
+    "sample": "shinbun",
+    "romaji": "shi",
+    "level": "3",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna13",
+    "entityType": "Card",
+    "en": "watermellon",
+    "sample": "suika",
+    "romaji": "su",
+    "level": "3",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna14",
+    "entityType": "Card",
+    "en": "teacher",
+    "sample": "sensei",
+    "romaji": "se",
+    "level": "3",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna15",
+    "entityType": "Card",
+    "en": "sky",
+    "sample": "sora",
+    "romaji": "so",
+    "level": "3",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna16",
+    "entityType": "Card",
+    "en": "sun",
+    "sample": "taiyou",
+    "romaji": "ta",
+    "level": "4",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna17",
+    "entityType": "Card",
+    "en": "map",
+    "sample": "chizu",
+    "romaji": "chi",
+    "level": "4",
+    "category": "hiragana",
+    "image": "map.jpeg"
+  },
+  {
+    "id": "hgna18",
+    "entityType": "Card",
+    "en": "moon",
+    "sample": "tsuki",
+    "romaji": "tsu",
+    "level": "4",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna19",
+    "entityType": "Card",
+    "en": "letter",
+    "sample": "tegami",
+    "romaji": "te",
+    "level": "4",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna20",
+    "entityType": "Card",
+    "en": "friend",
+    "sample": "tomodachi",
+    "romaji": "to",
+    "level": "4",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna21",
+    "entityType": "Card",
+    "en": "crying",
+    "sample": "naku",
+    "romaji": "na",
+    "level": "5",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna22",
+    "entityType": "Card",
+    "en": "carrot",
+    "sample": "ninjin",
+    "romaji": "ni",
+    "level": "5",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna23",
+    "entityType": "Card",
+    "en": "stuffed animal",
+    "sample": "nuigurumi",
+    "romaji": "nu",
+    "level": "5",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna24",
+    "entityType": "Card",
+    "en": "cat",
+    "sample": "neko",
+    "romaji": "ne",
+    "level": "5",
+    "category": "hiragana"
+  },
+  {
+    "id": "hgna25",
+    "entityType": "Card",
+    "en": "seaweed",
+    "sample": "nori",
+    "romaji": "no",
+    "level": "5",
+    "category": "hiragana"
+  },
+  {
+    "id": "a65df",
+    "entityType": "Card",
+    "en": "white",
+    "romaji": "shiro",
+    "level": "1",
+    "category": "colors"
+  },
+  {
+    "id": "r45tg",
+    "entityType": "Card",
+    "en": "red",
+    "romaji": "aka",
+    "level": "1",
+    "category": "colors"
+  },
+  {
+    "id": "t21xr",
+    "entityType": "Card",
+    "en": "gold",
+    "romaji": "kin",
+    "level": "2",
+    "category": "colors"
+  },
+  {
+    "id": "4xfrt",
+    "entityType": "Card",
+    "en": "lion",
+    "romaji": "rion",
+    "level": "2",
+    "category": "animals"
+  },
+  {
+    "id": "e12xt",
+    "entityType": "Card",
+    "en": "cat",
+    "romaji": "neko",
+    "level": "1",
+    "category": "animals",
+    "image": "cat.jpeg"
+  }
+]

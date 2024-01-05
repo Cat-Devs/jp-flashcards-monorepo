@@ -13,7 +13,7 @@ import images from '../assets/images.json';
 import { CardType } from '../utils';
 
 interface Props extends CardType {
-  cardId: string;
+  id: string;
   category: string;
   image: keyof typeof images;
   en: string;
@@ -21,7 +21,7 @@ interface Props extends CardType {
   onFlipCard?: () => void;
 }
 
-export const Card = ({ cardId, category, image, en, romaji, onFlipCard }: Props) => {
+export const Card = ({ id, category, image, en, romaji, onFlipCard }: Props) => {
   const spin = useSharedValue<number>(0);
 
   const frontStyle = useAnimatedStyle(() => {
@@ -60,7 +60,7 @@ export const Card = ({ cardId, category, image, en, romaji, onFlipCard }: Props)
           style={{ height: 550, width: '100%', backgroundColor: Colors.white }}>
           <View row spread>
             <Text h4 grey10 text80L>
-              {cardId}
+              {id}
             </Text>
             <Text h4 grey10 text80L uppercase>
               {category}
@@ -93,7 +93,7 @@ export const Card = ({ cardId, category, image, en, romaji, onFlipCard }: Props)
           style={{ height: 550, backgroundColor: Colors.white }}>
           <View row spread>
             <Text h4 grey10 text80L>
-              {cardId}
+              {id}
             </Text>
             <Text h4 grey10 text80L uppercase>
               {category}

@@ -17,8 +17,12 @@ export const GameOver = ({ onStartOver, gameStats }: Props) => {
         <Text h1 center text30H marginB-100>
           Game Over
         </Text>
-        <Text text60L>Category: {gameStats?.gameMode}</Text>
-        <Text text60L>Success rate: {successRate * 100}%</Text>
+        <Text text60L>
+          Category:{' '}
+          {gameStats?.gameMode &&
+            gameStats.gameMode.charAt(0).toUpperCase() + gameStats.gameMode.slice(1)}
+        </Text>
+        <Text text60L>Success rate: {(successRate * 100).toFixed(2)}%</Text>
       </View>
 
       <Button

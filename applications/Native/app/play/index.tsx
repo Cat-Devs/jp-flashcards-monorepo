@@ -67,7 +67,7 @@ export default function PlayPage() {
         />
 
         <Card
-          cardId={currentCard.cardId}
+          id={currentCard.id}
           category={currentCard.category}
           image={currentCard.image}
           en={currentCard.en}

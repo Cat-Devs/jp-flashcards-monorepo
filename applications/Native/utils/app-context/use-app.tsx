@@ -2,7 +2,8 @@ import { useContext } from 'react';
 
 import { AppContext } from './AppContext';
 import { createDeck, auth } from '../controllers';
-import { UserState, CardType } from '../types';
+import { UserState } from '../types';
+import { playNextCard } from './operations/playNextCard';
 
 export const useApp = () => {
   const context = useContext(AppContext);
@@ -30,38 +31,6 @@ export const useApp = () => {
         gameMode,
       },
     });
-  };
-
-  const playNextCard = (success?: boolean): CardType | null => {
-    const updateDeck = state.deck.map((card: CardType) => {
-      if (card.cardId === state.currentCard?.cardId) {
-        return {
-          ...card,
-          success,
-        };
-      }
-      return card;
-    });
-
-    if (!state.nextCard) {
-      dispatch({
-        type: 'END_GAME',
-        payload: {
-          deck: updateDeck,
-        },
-      });
-      return null;
-    }
-
-    dispatch({
-      type: 'NEXT_CARD',
-      payload: {
-        currentCard: state.nextCard,
-        nextCard: state.deck[state.deck.indexOf(state.nextCard) + 1] || null,
-        deck: updateDeck,
-      },
-    });
-    return state.nextCard;
   };
 
   const endGame = () => {
@@ -108,9 +77,13 @@ export const useApp = () => {
     return user;
   };
 
+  const playNextCardLocal = (success?: boolean) => {
+    return playNextCard(state, dispatch, success);
+  };
+
   return {
     state,
-    playNextCard,
+    playNextCard: playNextCardLocal,
     endGame,
     startGame,
     setUser,
