@@ -6,8 +6,8 @@ export const auth = async (userData: { username: string; password: string }) => 
     const res = await axios.post(`${API_URL}/api/v1/auth`, userData);
 
     return res.data;
-  } catch (err) {
-    console.log(err);
+  } catch (err: any) {
+    console.log(err?.message || 'Error');
 
     return null;
   }

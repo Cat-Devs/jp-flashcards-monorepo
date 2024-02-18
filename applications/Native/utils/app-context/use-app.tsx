@@ -54,6 +54,7 @@ export const useApp = () => {
 
   const signIn = async (userData: { username: string; password: string }) => {
     const user = await auth(userData);
+    console.log('user', user);
 
     // if (!user) {
     unsetUser();

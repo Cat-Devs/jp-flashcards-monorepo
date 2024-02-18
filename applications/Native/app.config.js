@@ -31,7 +31,7 @@ module.exports = {
       favicon: './assets/logo.png',
       bundler: 'metro',
     },
-    plugins: ['expo-router'],
+    plugins: ['expo-router', 'expo-font'],
     extra: {
       router: {
         origin: false,

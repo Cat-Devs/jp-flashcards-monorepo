@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import { View, Colors, Button, Incubator } from 'react-native-ui-lib';
+import * as Speech from 'expo-speech';
 
 import { Card } from '../../components/Card';
 import { useApp } from '../../utils';
@@ -24,10 +25,16 @@ export default function PlayPage() {
     })();
   }, [toastDismissed]);
 
-  const handleFlipCard = () => {
+  const speak = () => {
+    const thingToSay = '1';
+    Speech.speak(thingToSay);
+  };
+
+  const handleFlipCard = async () => {
     if (toastVisible) {
       handleDismissToast();
     }
+    speak();
     setShowControls(true);
   };
 

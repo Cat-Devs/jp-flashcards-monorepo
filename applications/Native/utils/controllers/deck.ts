@@ -28,6 +28,7 @@ export const createDeckByLevel = async (level: number) => {
   console.log('userCards', userCards);
 
   const cards = getCards().filter((card) => Number(card.level) === level);
+  console.log('cards', cards);
 
   return cards;
 };
