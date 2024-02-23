@@ -1,22 +1,21 @@
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
-import { useRouter } from 'expo-router';
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native';
-import { View, Colors, Button, Incubator } from 'react-native-ui-lib';
+import { useRouter, Redirect } from 'expo-router';
 import * as Speech from 'expo-speech';
+import React, { useEffect, useState } from 'react';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+import { Colors, Button, Incubator } from 'react-native-ui-lib';
 
 import { Card } from '../../components/Card';
 import { useApp } from '../../utils';
+import { SafeAreaView, View } from '@/components/Themed';
 
-export default function PlayPage() {
+function PlayPage(): React.JSX.Element {
   const router = useRouter();
   const [toastVisible, setToastVisible] = useState(true);
   const [showControls, setShowControls] = useState(false);
   const { getItem: toastDismissed, setItem: setToastDismissed } = useAsyncStorage('toast');
-  const {
-    state: { currentCard },
-    playNextCard,
-  } = useApp();
+  const { state, playNextCard } = useApp();
+  const { currentCard } = state;
 
   useEffect(() => {
     (async () => {
@@ -25,16 +24,15 @@ export default function PlayPage() {
     })();
   }, [toastDismissed]);
 
-  const speak = () => {
-    const thingToSay = '1';
-    Speech.speak(thingToSay);
+  const speak = (say: string) => {
+    Speech.speak(say, { language: 'ja-JP', rate: 0.5 });
   };
 
   const handleFlipCard = async () => {
     if (toastVisible) {
       handleDismissToast();
     }
-    speak();
+    speak(currentCard?.romaji || '');
     setShowControls(true);
   };
 
@@ -42,10 +40,10 @@ export default function PlayPage() {
     const res = playNextCard(cardResult);
 
     if (res === null) {
-      return router.replace({ pathname: '/game-over' });
+      return router.replace('/game-over/');
     }
 
-    router.replace({ pathname: '/play' });
+    router.replace('/play/');
   };
 
   const handleDismissToast = () => {
@@ -54,7 +52,7 @@ export default function PlayPage() {
   };
 
   if (!currentCard) {
-    return router.replace({ pathname: '/no-card' });
+    return <Redirect href="/no-card/" />;
   }
 
   return (
@@ -104,3 +102,5 @@ export default function PlayPage() {
     </SafeAreaView>
   );
 }
+
+export default gestureHandlerRootHOC(PlayPage);

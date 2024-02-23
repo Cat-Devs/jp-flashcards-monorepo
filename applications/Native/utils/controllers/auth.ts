@@ -1,5 +1,6 @@
-import { API_URL } from '@env';
 import axios from 'axios';
+
+const API_URL = process.env.API_URL;
 
 export const auth = async (userData: { username: string; password: string }) => {
   try {

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 
 import { AppContext } from './AppContext';
+import { playNextCard } from './operations/playNextCard';
 import { createDeck, auth } from '../controllers';
 import { UserState } from '../types';
-import { playNextCard } from './operations/playNextCard';
 
 export const useApp = () => {
   const context = useContext(AppContext);

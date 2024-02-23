@@ -2,7 +2,7 @@ const { Buffer } = require('buffer');
 const fs = require('fs');
 
 const ASSETS_FOLDER = '_assets';
-const ASSETS_JSON_OUTPUT = 'assets/images.json';
+const ASSETS_JSON_OUTPUT = 'assets/images/images.json';
 
 function convertImageToBase64(imagePath) {
   const image = fs.readFileSync(imagePath);

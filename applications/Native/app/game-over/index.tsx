@@ -1,17 +1,16 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import { View } from 'react-native-ui-lib';
 
 import { GameOver } from '../../components/GameOver';
 import { useApp } from '../../utils';
+import { SafeAreaView, View } from '@/components/Themed';
 
 export default function GameOverPage() {
   const { state } = useApp();
   const router = useRouter();
 
   const handleGoHome = () => {
-    router.replace({ pathname: '/home' });
+    router.replace('/');
   };
 
   return (

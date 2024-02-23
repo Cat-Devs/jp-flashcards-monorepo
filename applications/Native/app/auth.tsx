@@ -1,24 +1,18 @@
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { SafeAreaView, Keyboard, TouchableWithoutFeedback } from 'react-native';
-import {
-  View,
-  TextField,
-  TextFieldRef,
-  Text,
-  Button,
-  Colors,
-  Incubator,
-} from 'react-native-ui-lib';
+import { Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+import { TextFieldRef, Text, Colors, Incubator } from 'react-native-ui-lib';
 
 import { useApp } from '../utils';
+import { UITextField, UIButton, SafeAreaView, View } from '@/components/Themed';
 
 interface UserData {
   username: string;
   password: string;
 }
 
-export default function App() {
+function Auth() {
   const router = useRouter();
   const { signIn, signUp } = useApp();
   const usernameRef = React.createRef<TextFieldRef>();
@@ -46,11 +40,11 @@ export default function App() {
   const handleSignUp = async () => {
     const user = await signUp(userData);
 
-    if (!user) {
-      //   setToastMessage('Failed to sign up');
-      //   setToastVisible(true);
-      //   return;
-    }
+    // if (!user) {
+    //   //   setToastMessage('Failed to sign up');
+    //   //   setToastVisible(true);
+    //   //   return;
+    // }
 
     router.replace('/');
   };
@@ -59,32 +53,36 @@ export default function App() {
     setToastVisible(false);
   };
 
+  const renderToast = () => {
+    return (
+      <Incubator.Toast
+        key="my-toast"
+        preset="failure"
+        position="top"
+        swipeable
+        centerMessage
+        enableHapticFeedback
+        autoDismiss={3000}
+        backgroundColor={Colors.red80}
+        visible={toastVisible}
+        message={toastMessage}
+        onDismiss={handleDismissToast}
+      />
+    );
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View flex paddingH-25 paddingT-120>
-          <Incubator.Toast
-            preset="failure"
-            position="top"
-            swipeable
-            centerMessage
-            enableHapticFeedback
-            autoDismiss={3000}
-            backgroundColor={Colors.red80}
-            visible={toastVisible}
-            message={toastMessage}
-            onDismiss={handleDismissToast}
-          />
-
           <Text center blue40 text20>
             JP Flashcard
           </Text>
 
           <View marginT-100>
-            <TextField
+            <UITextField
               ref={usernameRef}
               text70
-              grey10
               autoFocus
               marginB-20
               enableErrors
@@ -98,14 +96,13 @@ export default function App() {
               onChangeText={(value: string) => {
                 setUserData({ ...userData, username: value });
               }}
-              onChangeValidity={(isValid: boolean) =>
-                setIsFormValid(isValid && Boolean(passwordRef.current?.isValid()))
-              }
+              onChangeValidity={(isValid: boolean) => {
+                setIsFormValid(isValid && Boolean(passwordRef.current?.isValid()));
+              }}
             />
-            <TextField
+            <UITextField
               ref={passwordRef}
               text70
-              grey10
               enableErrors
               secureTextEntry
               validateOnChange
@@ -127,18 +124,21 @@ export default function App() {
           </View>
 
           <View flex marginT-100 center>
-            <Button
+            <UIButton
               text50BO
-              size={Button.sizes.large}
+              size="large"
               backgroundColor={Colors.blue40}
               label="Sign In"
               disabled={!isFormValid}
               onPress={handleSignIn}
             />
-            <Button link text60 blue40 label="Sign Up" marginT-20 onPress={handleSignUp} />
+            <UIButton link text60 blue40 label="Sign Up" marginT-20 onPress={handleSignUp} />
           </View>
+          {renderToast()}
         </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 }
+
+export default gestureHandlerRootHOC(Auth);

@@ -1,5 +1,6 @@
-import { getCards } from '../db';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { getCards } from '../db';
 // import axios from 'axios';
 // import { API_URL } from '@env';
 
@@ -34,8 +35,6 @@ export const createDeckByLevel = async (level: number) => {
 };
 
 export const createDeck = async (gameMode: string) => {
-  console.log('gameMode', gameMode);
-
   const cards = await createDeckByLevel(1);
   return cards.filter((card) => card.category !== 'hiragana');
 };

@@ -1,6 +1,5 @@
 import { AppState } from '../types';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const appReducer = (state: AppState, action: any) => {
   switch (action.type) {
     case 'START_GAME':

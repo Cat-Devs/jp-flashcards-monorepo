@@ -1,15 +1,14 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import { View } from 'react-native-ui-lib';
 
 import { NoCard } from '../../components/NoCard';
+import { SafeAreaView, View } from '@/components/Themed';
 
-export default function GameOverPage() {
+export default function NoCardPage() {
   const router = useRouter();
 
   const handleGoHome = () => {
-    router.replace({ pathname: '/home' });
+    router.navigate('/');
   };
 
   return (

@@ -1,4 +1,4 @@
-import images from '../assets/images.json';
+import images from '../assets/images/images.json';
 
 export interface UserState {
   id: string;

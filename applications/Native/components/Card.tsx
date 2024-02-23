@@ -9,7 +9,7 @@ import Animated, {
 import { View, Text, Card as CardComponent, TouchableOpacity, Colors } from 'react-native-ui-lib';
 import { toKana } from 'wanakana';
 
-import images from '../assets/images.json';
+import images from '../assets/images/images.json';
 import { CardType } from '../utils';
 
 interface Props extends CardType {

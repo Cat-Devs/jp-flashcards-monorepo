@@ -1,5 +1,5 @@
-import { AppState, CardType } from '../../types';
 import { playNextCard } from './playNextCard';
+import { AppState, CardType } from '../../types';
 
 const testDeck: CardType[] = [
   {

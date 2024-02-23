@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Colors, Text, View } from 'react-native-ui-lib';
-
+import { Button, Colors, View } from 'react-native-ui-lib';
+import { UIText } from '@/components/Themed';
 import { AppState } from '../utils';
 
 interface Props {
@@ -14,15 +14,15 @@ export const GameOver = ({ onStartOver, gameStats }: Props) => {
   return (
     <View paddingH-10>
       <View marginB-100>
-        <Text h1 center text30H marginB-100>
+        <UIText h1 center text30H marginB-100>
           Game Over
-        </Text>
-        <Text text60L>
+        </UIText>
+        <UIText text60L>
           Category:{' '}
           {gameStats?.gameMode &&
             gameStats.gameMode.charAt(0).toUpperCase() + gameStats.gameMode.slice(1)}
-        </Text>
-        <Text text60L>Success rate: {(successRate * 100).toFixed(2)}%</Text>
+        </UIText>
+        <UIText text60L>Success rate: {(successRate * 100).toFixed(2)}%</UIText>
       </View>
 
       <Button

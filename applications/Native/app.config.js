@@ -7,11 +7,11 @@ module.exports = {
     slug: 'jp-flashcards',
     version: '1.0.0',
     orientation: 'portrait',
-    icon: './assets/logo.png',
-    userInterfaceStyle: 'dark',
+    icon: './assets/images/logo.png',
+    userInterfaceStyle: 'automatic',
     scheme: 'acme',
     splash: {
-      image: './assets/logo.png',
+      image: './assets/images/logo.png',
       resizeMode: 'contain',
       backgroundColor: '#111526',
     },
@@ -22,13 +22,13 @@ module.exports = {
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: './assets/logo.png',
+        foregroundImage: './assets/images/logo.png',
         backgroundColor: '#111526',
       },
       package: 'com.andreasonny83.jpFlashcardsNative',
     },
     web: {
-      favicon: './assets/logo.png',
+      favicon: './assets/images/logo.png',
       bundler: 'metro',
     },
     plugins: ['expo-router', 'expo-font'],
