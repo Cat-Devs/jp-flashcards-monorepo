@@ -1,8 +1,8 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
+import { View } from 'react-native-ui-lib';
 
 import { NoCard } from '../../components/NoCard';
-import { SafeAreaView, View } from '@/components/Themed';
 
 export default function NoCardPage() {
   const router = useRouter();
@@ -12,10 +12,10 @@ export default function NoCardPage() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View flex centerV marginH-20>
+    <View flex centerV bg-screenBG>
+      <View marginH-20>
         <NoCard onGoHome={handleGoHome} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

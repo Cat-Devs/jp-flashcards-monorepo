@@ -1,9 +1,9 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
+import { View } from 'react-native-ui-lib';
 
 import { GameOver } from '../../components/GameOver';
 import { useApp } from '../../utils';
-import { SafeAreaView, View } from '@/components/Themed';
 
 export default function GameOverPage() {
   const { state } = useApp();
@@ -14,10 +14,10 @@ export default function GameOverPage() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View flex bg-screenBG>
       <View flex centerV marginH-20>
         <GameOver gameStats={state} onStartOver={handleGoHome} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

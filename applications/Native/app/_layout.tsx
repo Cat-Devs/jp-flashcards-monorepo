@@ -1,12 +1,13 @@
+require('react-native-ui-lib/config').setConfig({ appScheme: 'default' });
+import './theme';
+
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 import { Colors } from 'react-native-ui-lib';
 
-import { useColorScheme } from '@/components/useColorScheme';
 import { AppProvider } from '@/utils';
 
 export {
@@ -42,26 +43,22 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AppProvider>
-        <Stack
-          screenOptions={{
-            title: 'JP FlashCards',
-            headerTintColor: Colors.white,
-            headerBackTitleVisible: false,
-            headerStyle: {
-              backgroundColor: Colors.blue40,
-            },
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-            headerBackVisible: true,
-          }}
-        />
-      </AppProvider>
-    </ThemeProvider>
+    <AppProvider>
+      <Stack
+        screenOptions={{
+          title: 'JP FlashCards',
+          headerTintColor: Colors.$textDefault,
+          headerBackTitleVisible: false,
+          headerStyle: {
+            backgroundColor: Colors.blue40,
+          },
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerBackVisible: true,
+        }}
+      />
+    </AppProvider>
   );
 }

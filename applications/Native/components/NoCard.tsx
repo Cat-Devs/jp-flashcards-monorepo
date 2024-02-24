@@ -1,6 +1,5 @@
 import React from 'react';
-import { Colors } from 'react-native-ui-lib';
-import { UIButton, View, UIText } from '@/components/Themed';
+import { Button, Colors, Text } from 'react-native-ui-lib';
 
 interface Props {
   onGoHome: () => void;
@@ -8,17 +7,17 @@ interface Props {
 
 export const NoCard = ({ onGoHome }: Props) => {
   return (
-    <View>
-      <UIText h1 center text30H marginB-100>
+    <>
+      <Text h1 center text30H marginB-80>
         Cannot find a card
-      </UIText>
-      <UIButton
+      </Text>
+      <Button
         text50BO
         size="large"
         backgroundColor={Colors.blue40}
         label="Go Home"
         onPress={onGoHome}
       />
-    </View>
+    </>
   );
 };

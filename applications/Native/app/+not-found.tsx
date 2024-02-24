@@ -1,25 +1,23 @@
 import { Stack, useRouter } from 'expo-router';
-
-import { UIText, View, SafeAreaView, UIButton } from '@/components/Themed';
+import { Button, Colors, Text, View } from 'react-native-ui-lib';
 
 export default function NotFoundScreen() {
   const router = useRouter();
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View flex centerV bg-screenBG>
       <Stack.Screen options={{ title: 'Oops!' }} />
-      <View flex centerV>
-        <UIText text50BO center>
-          This screen doesn't exist.
-        </UIText>
-        <UIButton
-          link
-          margin-30
-          paddingV-10
-          text50M
+      <View marginH-20>
+        <Text h1 center text40H marginB-80>
+          This screen doesn't exist
+        </Text>
+        <Button
+          text50BO
+          size="large"
           label="Go to home screen"
+          backgroundColor={Colors.blue40}
           onPress={() => router.back()}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

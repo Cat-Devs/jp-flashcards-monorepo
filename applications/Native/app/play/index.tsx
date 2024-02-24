@@ -3,11 +3,10 @@ import { useRouter, Redirect } from 'expo-router';
 import * as Speech from 'expo-speech';
 import React, { useEffect, useState } from 'react';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
-import { Colors, Button, Incubator } from 'react-native-ui-lib';
+import { Colors, Incubator, Button, View } from 'react-native-ui-lib';
 
 import { Card } from '../../components/Card';
 import { useApp } from '../../utils';
-import { SafeAreaView, View } from '@/components/Themed';
 
 function PlayPage(): React.JSX.Element {
   const router = useRouter();
@@ -24,7 +23,8 @@ function PlayPage(): React.JSX.Element {
     })();
   }, [toastDismissed]);
 
-  const speak = (say: string) => {
+  const handlePlaySound = () => {
+    const say = currentCard?.romaji || '';
     Speech.speak(say, { language: 'ja-JP', rate: 0.5 });
   };
 
@@ -32,8 +32,10 @@ function PlayPage(): React.JSX.Element {
     if (toastVisible) {
       handleDismissToast();
     }
-    speak(currentCard?.romaji || '');
-    setShowControls(true);
+    if (!showControls) {
+      handlePlaySound();
+      setShowControls(true);
+    }
   };
 
   const handleNextCard = (cardResult: boolean) => {
@@ -56,7 +58,7 @@ function PlayPage(): React.JSX.Element {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View flex paddingV-10 bg-screenBG>
       <View flex bottom marginH-20>
         <Incubator.Toast
           backgroundColor={Colors.blue80}
@@ -70,6 +72,14 @@ function PlayPage(): React.JSX.Element {
           swipeable
           zIndex={1}
         />
+
+        <View height={80} flex centerV>
+          {showControls && (
+            <View row right>
+              <Button label="PLAY" size="large" onPress={handlePlaySound} />
+            </View>
+          )}
+        </View>
 
         <Card
           id={currentCard.id}
@@ -85,13 +95,15 @@ function PlayPage(): React.JSX.Element {
             <View row marginT-20 right spread>
               <Button
                 label="Failed"
-                size={Button.sizes.large}
+                size="large"
+                color={Colors.grey80}
                 backgroundColor={Colors.red30}
                 onPress={() => handleNextCard(false)}
               />
               <Button
                 label="Success"
-                size={Button.sizes.large}
+                size="large"
+                color={Colors.grey80}
                 backgroundColor={Colors.green30}
                 onPress={() => handleNextCard(true)}
               />
@@ -99,7 +111,7 @@ function PlayPage(): React.JSX.Element {
           )}
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -18,6 +18,7 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
+      userInterfaceStyle: 'automatic',
       bundleIdentifier: 'com.andreasonny83.jpFlashcardsNative',
     },
     android: {
@@ -25,6 +26,7 @@ module.exports = {
         foregroundImage: './assets/images/logo.png',
         backgroundColor: '#111526',
       },
+      userInterfaceStyle: 'automatic',
       package: 'com.andreasonny83.jpFlashcardsNative',
     },
     web: {
